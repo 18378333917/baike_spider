@@ -1,5 +1,6 @@
 #coding:utf-8
 import url_manager,html_downloader,html_parser,html_outputer
+import time
 class SpiderMain(object):
     def __init__(self):
         self.urls = url_manager.UrlManager()    
@@ -25,6 +26,9 @@ class SpiderMain(object):
             print "download fail"
         self.outputer.output_html()
 if __name__ == "__main__":
+    start = time.time()
     root_url = "http://baike.baidu.com/view/21087.htm"
     object_spider = SpiderMain()
     object_spider.crawl(root_url)
+    end = time.time()
+    print "cost all time: %s" % (end-start)
