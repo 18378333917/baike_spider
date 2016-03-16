@@ -2,7 +2,7 @@
 import threading,Queue
 import html_parser, html_outputer, html_downloader
 import time
-class Crawler(object):
+class Spider(object):
     def __init__(self, tp, seed):
         self.tp = tp
         self.seed = seed
@@ -71,8 +71,8 @@ if __name__ == "__main__":
     start = time.time()
     seed = 'http://baike.baidu.com/view/21087.htm' 
     tp = ThreadingPool(3) 
-    crawler = Crawler(tp, seed)
-    crawler.work()
-    crawler.html_outputer.output_html() 
+    spider = Spider(tp, seed)
+    spider.work()
+    spider.html_outputer.output_html() 
     end = time.time()
     print "cost all time: %s" % (end-start)
